@@ -1,8 +1,8 @@
 # flutter_localization
 
 A Flutter localization example application.
-Documentation: https://flutter.dev/docs/development/accessibility-and-localization/internationalization
-Example code: https://github.com/flutter/website/tree/master/examples/internationalization
+- [Documentation:](https://flutter.dev/docs/development/accessibility-and-localization/internationalization)
+- [Example code:](https://github.com/flutter/website/tree/master/examples/internationalization)
 
 ## Getting Started
 
