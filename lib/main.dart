@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart' show SynchronousFuture;
 import 'package:flutter_localizations/flutter_localizations.dart';
 
-class DemoLocalizations {
-  DemoLocalizations(this.locale);
+class MinimalLocalizations {
+  MinimalLocalizations(this.locale);
 
   final Locale locale;
 
-  static DemoLocalizations of(BuildContext context) {
-    return Localizations.of<DemoLocalizations>(context, DemoLocalizations);
+  static MinimalLocalizations of(BuildContext context) {
+    return Localizations.of<MinimalLocalizations>(context, MinimalLocalizations);
   }
 
   static Map<String, Map<String, String>> _localizedValues = {
@@ -36,23 +36,23 @@ class DemoLocalizations {
   }
 }
 
-class DemoLocalizationsDelegate
-    extends LocalizationsDelegate<DemoLocalizations> {
-  const DemoLocalizationsDelegate();
+class MinimalLocalizationsDelegate
+    extends LocalizationsDelegate<MinimalLocalizations> {
+  const MinimalLocalizationsDelegate();
 
   @override
   bool isSupported(Locale locale) =>
       ['en', 'es', 'pl'].contains(locale.languageCode);
 
   @override
-  Future<DemoLocalizations> load(Locale locale) {
+  Future<MinimalLocalizations> load(Locale locale) {
     // Returning a SynchronousFuture here because an async "load" operation
     // isn't needed to produce an instance of DemoLocalizations.
-    return SynchronousFuture<DemoLocalizations>(DemoLocalizations(locale));
+    return SynchronousFuture<MinimalLocalizations>(MinimalLocalizations(locale));
   }
 
   @override
-  bool shouldReload(DemoLocalizationsDelegate old) => false;
+  bool shouldReload(MinimalLocalizationsDelegate old) => false;
 }
 
 class DemoApp extends StatelessWidget {
@@ -60,10 +60,10 @@ class DemoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(DemoLocalizations.of(context).title),
+        title: Text(MinimalLocalizations.of(context).title),
       ),
       body: Center(
-        child: Text(DemoLocalizations.of(context).body),
+        child: Text(MinimalLocalizations.of(context).body),
       ),
     );
   }
@@ -74,9 +74,9 @@ class Demo extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       onGenerateTitle: (BuildContext context) =>
-          DemoLocalizations.of(context).title,
+          MinimalLocalizations.of(context).title,
       localizationsDelegates: [
-        const DemoLocalizationsDelegate(),
+        const MinimalLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
       ],
