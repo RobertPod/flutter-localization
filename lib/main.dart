@@ -16,17 +16,23 @@ class DemoLocalizations {
   static Map<String, Map<String, String>> _localizedValues = {
     'en': {
       'title': 'Hello World',
+      'body': 'Hello Robert',
     },
     'es': {
       'title': 'Hola Mundo',
+      'body': 'Hola Robert',
     },
     'pl': {
       'title': 'Cześć Świecie',
+      'body': 'Cześć Robert',
     },
   };
 
   String get title {
     return _localizedValues[locale.languageCode]['title'];
+  }
+  String get body {
+    return _localizedValues[locale.languageCode]['body'];
   }
 }
 
@@ -57,7 +63,7 @@ class DemoApp extends StatelessWidget {
         title: Text(DemoLocalizations.of(context).title),
       ),
       body: Center(
-        child: Text(DemoLocalizations.of(context).title),
+        child: Text(DemoLocalizations.of(context).body),
       ),
     );
   }
@@ -88,6 +94,6 @@ class Demo extends StatelessWidget {
   }
 }
 
-void main() {
+void main() =>
   runApp(Demo());
-}
+
