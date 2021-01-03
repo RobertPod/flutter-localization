@@ -1,59 +1,6 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/foundation.dart' show SynchronousFuture;
 import 'package:flutter_localizations/flutter_localizations.dart';
-
-class MinimalLocalizations {
-  MinimalLocalizations(this.locale);
-
-  final Locale locale;
-
-  static MinimalLocalizations of(BuildContext context) {
-    return Localizations.of<MinimalLocalizations>(context, MinimalLocalizations);
-  }
-
-  static Map<String, Map<String, String>> _localizedValues = {
-    'en': {
-      'title': 'Hello World',
-      'body': 'Hello Robert',
-    },
-    'es': {
-      'title': 'Hola Mundo',
-      'body': 'Hola Robert',
-    },
-    'pl': {
-      'title': 'Cześć Świecie',
-      'body': 'Cześć Robert',
-    },
-  };
-
-  String get title {
-    return _localizedValues[locale.languageCode]['title'];
-  }
-  String get body {
-    return _localizedValues[locale.languageCode]['body'];
-  }
-}
-
-class MinimalLocalizationsDelegate
-    extends LocalizationsDelegate<MinimalLocalizations> {
-  const MinimalLocalizationsDelegate();
-
-  @override
-  bool isSupported(Locale locale) =>
-      ['en', 'es', 'pl'].contains(locale.languageCode);
-
-  @override
-  Future<MinimalLocalizations> load(Locale locale) {
-    // Returning a SynchronousFuture here because an async "load" operation
-    // isn't needed to produce an instance of DemoLocalizations.
-    return SynchronousFuture<MinimalLocalizations>(MinimalLocalizations(locale));
-  }
-
-  @override
-  bool shouldReload(MinimalLocalizationsDelegate old) => false;
-}
+import './l10n/MinimalLocalizations.dart';
 
 class DemoApp extends StatelessWidget {
   @override
